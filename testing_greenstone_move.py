@@ -24,7 +24,6 @@ for root, dirs, files in os.walk('C:\\Users\\Phil\\Desktop\\exported_GreenstoneM
 		
 		if name == 'docmets.xml':
 			myDom = minidom.parse(os.path.join(root,name))
-			print(os.path.join(root,name))
 			myElements = myDom.getElementsByTagName('gsdl3:Metadata')
 			for element in myElements:
 				if element.attributes['name'].value == 'dc.Title':
