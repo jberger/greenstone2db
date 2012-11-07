@@ -85,12 +85,10 @@ sub data_to_row {
 
 sub get_insert_statement {
   my ($dbh, $props) = @_;
-  my $statement = 
-    'INSERT INTO dcrecords (' 
-    . join( ', ', @$props )
-    . ') VALUES ('
-    . join( ', ', ('?') x @$props )
-    . ');';
+  my $statement = sprintf 
+    'INSERT INTO dcrecords ( %s ) VALUES ( %s );', 
+    join( ', ', @$props ), 
+    join( ', ', ('?') x @$props );
 
   print "Insert Statement: $statement\n" if $verbose;
 
@@ -108,10 +106,9 @@ sub check_table {
 
   warn "Creating table 'dcrecords'\n";
 
-  my $statement = 
-    'CREATE TABLE dcrecords ('
-    . join( ', ', map { "$_ VARCHAR" } @$props )
-    . ');';
+  my $statement = sprintf
+    'CREATE TABLE dcrecords ( %s );',
+    join( ', ', map { "$_ VARCHAR" } @$props );
 
   print "Create Statement: $statement\n" if $verbose;
 
