@@ -35,11 +35,7 @@ my $props = [ qw/
 / ];
 
 my $dbh = DBI->connect("dbi:SQLite:database.db","","") or die "Could not connect";
-# make sure table exists
-unless ( eval { get_insert_statement($dbh, $props) } ) {
-  warn "Creating table\n";
-  create_table($dbh, $props);
-}
+check_table($dbh, $props);
 my $sth = get_insert_statement($dbh, $props);
 
 find(\&found, $dir);
@@ -101,14 +97,23 @@ sub get_insert_statement {
   return $dbh->prepare($statement);
 }
 
-sub create_table {
+sub check_table {
   my ($dbh, $props) = @_;
+
+  {
+    # hide an expected warning
+    local $SIG{__WARN__} = sub { warn @_ unless $_[0] =~ /no such table/ };
+    return if eval { get_insert_statement($dbh, $props) };
+  }
+
+  warn "Creating table 'dcrecords'\n";
+
   my $statement = 
     'CREATE TABLE dcrecords ('
     . join( ', ', map { "$_ VARCHAR" } @$props )
     . ');';
 
-  print "Creating Table: $statement\n" if $verbose;
+  print "Create Statement: $statement\n" if $verbose;
 
   $dbh->do($statement);
 }
