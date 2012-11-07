@@ -35,8 +35,9 @@ my $props = [ qw/
 / ];
 
 my $dbh = DBI->connect("dbi:SQLite:database.db","","") or die "Could not connect";
-check_table($dbh, $props);
-my $sth = get_insert_statement($dbh, $props);
+my $table = 'dcrecords';
+check_table($dbh, $table, $props);
+my $sth = get_insert_statement($dbh, $table, $props);
 
 find(\&found, $dir);
 
@@ -84,11 +85,13 @@ sub data_to_row {
 }
 
 sub get_insert_statement {
-  my ($dbh, $props) = @_;
-  my $statement = sprintf 
-    'INSERT INTO dcrecords ( %s ) VALUES ( %s );', 
+  my ($dbh, $table, $props) = @_;
+  my $statement = sprintf(
+    'INSERT INTO %s ( %s ) VALUES ( %s );', 
+    $table,
     join( ', ', @$props ), 
-    join( ', ', ('?') x @$props );
+    join( ', ', ('?') x @$props )
+  );
 
   print "Insert Statement: $statement\n" if $verbose;
 
@@ -96,7 +99,7 @@ sub get_insert_statement {
 }
 
 sub check_table {
-  my ($dbh, $props) = @_;
+  my ($dbh, $table, $props) = @_;
 
   {
     # hide an expected warning
@@ -104,11 +107,13 @@ sub check_table {
     return if eval { get_insert_statement($dbh, $props) };
   }
 
-  warn "Creating table 'dcrecords'\n";
+  warn "Creating table '$table'\n";
 
-  my $statement = sprintf
-    'CREATE TABLE dcrecords ( %s );',
-    join( ', ', map { "$_ VARCHAR" } @$props );
+  my $statement = sprintf(
+    'CREATE TABLE %s ( %s );',
+    $table,
+    join( ', ', map { "$_ VARCHAR" } @$props )
+  );
 
   print "Create Statement: $statement\n" if $verbose;
 
