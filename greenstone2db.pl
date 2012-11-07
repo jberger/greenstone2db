@@ -87,7 +87,7 @@ sub get_insert_statement {
   my ($dbh, $props) = @_;
   my $statement = 
     'INSERT INTO dcrecords (' 
-    . join( ', ', map { "'$_'" } @$props )
+    . join( ', ', @$props )
     . ') VALUES ('
     . join( ', ', ('?') x @$props )
     . ');';
