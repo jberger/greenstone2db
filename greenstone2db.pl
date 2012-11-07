@@ -12,7 +12,10 @@ use DBI;
 use Getopt::Long;
 
 GetOptions(
-  verbose => \my $verbose,
+  'verbose'    => \my $verbose,
+  'table=s'    => \(my $table    = 'dcrecords'  ),
+  'database=s' => \(my $database = 'database.db'),
+  'file=s'     => \(my $file     = 'docmets.xml'),
 );
 
 my $dir = shift || '.';
@@ -34,15 +37,14 @@ my $props = [ qw/
   Rights 
 / ];
 
-my $dbh = DBI->connect("dbi:SQLite:database.db","","") or die "Could not connect";
-my $table = 'dcrecords';
+my $dbh = DBI->connect("dbi:SQLite:$database","","") or die "Could not connect";
 check_table($dbh, $table, $props);
 my $sth = get_insert_statement($dbh, $table, $props);
 
 find(\&found, $dir);
 
 sub found {
-  return unless $_ eq 'docmets.xml';
+  return unless $_ eq $file;
   my $content = slurp $_;
   my $data    = parse_content( $content );
   my $row     = data_to_row( $data, $props );
