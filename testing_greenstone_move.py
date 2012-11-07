@@ -3,7 +3,7 @@ from xml.dom import minidom
 
 allSql = ''
 
-for root, dirs, files in os.walk('C:\\Users\\Phil\\Desktop\\exported_GreenstoneMETS'):
+for root, dirs, files in os.walk('.'):
 	for name in files:
 
 		dcTitle = ''
@@ -26,35 +26,36 @@ for root, dirs, files in os.walk('C:\\Users\\Phil\\Desktop\\exported_GreenstoneM
 			myDom = minidom.parse(os.path.join(root,name))
 			myElements = myDom.getElementsByTagName('gsdl3:Metadata')
 			for element in myElements:
-				if element.attributes['name'].value == 'dc.Title':
+				value = element.attributes['name'].value
+				if value == 'dc.Title':
 					dcTitle = dcTitle + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Creator':
+				if value == 'dc.Creator':
 					dcCreator = dcCreator + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Subject':
+				if value == 'dc.Subject':
 					dcSubject = dcSubject + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Description':
+				if value == 'dc.Description':
 					dcDescription = dcDescription + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Publisher':
+				if value == 'dc.Publisher':
 					dcPublisher = dcPublisher + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Contributor':
+				if value == 'dc.Contributor':
 					dcContributor = dcContributor + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Date':
+				if value == 'dc.Date':
 					dcDate = dcDate + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Type':
+				if value == 'dc.Type':
 					dcType = dcType + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Format':
+				if value == 'dc.Format':
 					dcFormat = dcFormat + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Identifier':
+				if value == 'dc.Identifier':
 					dcIdentifier = dcIdentifier + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Source':
+				if value == 'dc.Source':
 					dcSource = dcSource + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Language':
+				if value == 'dc.Language':
 					dcLanguage = dcLanguage + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Relation':
+				if value == 'dc.Relation':
 					dcRelation = dcRelation + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Coverage':
+				if value == 'dc.Coverage':
 					dcCoverage = dcCoverage + ', ' + element.firstChild.data
-				if element.attributes['name'].value == 'dc.Rights':
+				if value == 'dc.Rights':
 					dcRights = dcRights + ', ' + element.firstChild.data
 
 			sqlChunk = "(" + "'" + dcTitle[2:] + "', " + "'" + dcCreator[2:] + "', " + "'" + dcSubject[2:] + "', " + "'" + dcDescription[2:] + "', " + "'" + dcPublisher[2:] + "', " + "'" + dcContributor[2:] + "', " + "'" + dcDate[2:] + "', " + "'" + dcType[2:] + "', " + "'" + dcFormat[2:] + "', " + "'" + dcIdentifier[2:] + "', " + "'" + dcSource[2:] + "', " + "'" + dcLanguage[2:] + "', " + "'" + dcRelation[2:] + "', " + "'" + dcCoverage[2:] + "', " + "'" + dcRights[2:] + "')" 
