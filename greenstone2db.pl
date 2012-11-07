@@ -9,9 +9,14 @@ use File::Find;
 use Text::CSV;
 use Data::Printer output => 'stdout';
 use DBI;
+use Getopt::Long;
+
+GetOptions(
+  verbose => \my $verbose,
+);
 
 my $dir = shift || '.';
-my @props = qw/
+my $props = [ qw/
   Title
   Creator
   Subject
@@ -27,12 +32,15 @@ my @props = qw/
   Relation
   Coverage
   Rights 
-/;
+/ ];
 
 my $dbh = DBI->connect("dbi:SQLite:database.db","","") or die "Could not connect";
 # make sure table exists
-get_insert_statement($dbh) || create_table($dbh);
-my $sth = get_insert_statement($dbh);
+unless ( eval { get_insert_statement($dbh, $props) } ) {
+  warn "Creating table\n";
+  create_table($dbh, $props);
+}
+my $sth = get_insert_statement($dbh, $props);
 
 find(\&found, $dir);
 
@@ -40,7 +48,7 @@ sub found {
   return unless $_ eq 'docmets.xml';
   my $content = slurp $_;
   my $data    = parse_content( $content );
-  my $row     = data_to_row( $data );
+  my $row     = data_to_row( $data, $props );
   $sth->execute(@$row);
 }
 
@@ -54,49 +62,53 @@ sub parse_content {
     push @{ $data{$key} }, $e->text;
   }
 
-  print "\nData:\n";
-  p $data;
+  if ($verbose) {
+    print "\nData:\n";
+    p %data;
+  }
 
   return \%data;
 }
 
 sub data_to_row {
-  my ($data, $db) = @_;
+  my ($data, $props) = @_;
   my $csv = Text::CSV->new;
   my @row;
-  for my $prop (@props) {
+  for my $prop (@$props) {
     my $values = $data->{$prop} || [];
     push @row, $csv->combine(@$values) ? $csv->string : '';
   }
 
-  print "Row:\n";
-  p $row;
+  if ($verbose) {
+    print "Row:\n";
+    p @row;
+  }
 
   return \@row;
 }
 
 sub get_insert_statement {
-  my $dbh = shift;
+  my ($dbh, $props) = @_;
   my $statement = 
     'INSERT INTO dcrecords (' 
-    . join( ', ', map { "'$_'" } @props )
+    . join( ', ', map { "'$_'" } @$props )
     . ') VALUES ('
-    . join( ', ', ('?') x @props )
+    . join( ', ', ('?') x @$props )
     . ');';
 
-  print "Insert Statement: $statement\n";
+  print "Insert Statement: $statement\n" if $verbose;
 
-  return eval { $dbh->prepare($statement) };
+  return $dbh->prepare($statement);
 }
 
 sub create_table {
-  my $dbh = shift;
+  my ($dbh, $props) = @_;
   my $statement = 
     'CREATE TABLE dcrecords ('
-    . join( ', ', map { "$_ VARCHAR" } @props )
+    . join( ', ', map { "$_ VARCHAR" } @$props )
     . ');';
 
-  print "Creating Table: $statement\n";
+  print "Creating Table: $statement\n" if $verbose;
 
   $dbh->do($statement);
 }
