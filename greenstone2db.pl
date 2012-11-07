@@ -8,9 +8,9 @@ use Mojo::Util qw/slurp/;
 use File::Find;
 
 my $dir = shift || '.';
-find(\&found, $dir);
-
 my $db; #TODO connect to database here
+
+find(\&found, $dir);
 
 sub found {
   return unless /\.xml$/;
