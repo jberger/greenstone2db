@@ -11,6 +11,8 @@ use Data::Printer output => 'stdout';
 use DBI;
 use Getopt::Long;
 
+use subs 'debug';
+
 GetOptions(
   'verbose'    => \my $verbose,
   'table=s'    => \(my $table    = 'dcrecords'  ),
@@ -61,10 +63,7 @@ sub parse_content {
     push @{ $data{$key} }, $e->text;
   }
 
-  if ($verbose) {
-    print "\nData:\n";
-    p %data;
-  }
+  debug 'Data' => \%data;
 
   return \%data;
 }
@@ -78,10 +77,7 @@ sub data_to_row {
     push @row, $csv->combine(@$values) ? $csv->string : '';
   }
 
-  if ($verbose) {
-    print "Row:\n";
-    p @row;
-  }
+  debug 'Row' => \@row;
 
   return \@row;
 }
@@ -95,7 +91,7 @@ sub get_insert_statement {
     join( ', ', ('?') x @$props )
   );
 
-  print "Insert Statement: $statement\n" if $verbose;
+  debug 'Insert Statement' => $statement;
 
   return $dbh->prepare($statement);
 }
@@ -117,8 +113,15 @@ sub check_table {
     join( ', ', map { "$_ VARCHAR" } @$props )
   );
 
-  print "Create Statement: $statement\n" if $verbose;
+  debug 'Create Statement' => $statement;
 
   $dbh->do($statement);
+}
+
+sub debug {
+  return unless $verbose;
+  my ($message, $data) = @_;
+  print "\n$message:\n";
+  p $data;
 }
 
