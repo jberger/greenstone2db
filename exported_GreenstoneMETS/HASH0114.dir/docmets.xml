@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:gsdl3="http://www.greenstone.org/namespace/gsdlmetadata/1.0/"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xsi:schemaLocation="http://www.loc.gov/METS/
+           http://www.loc.gov/standards/mets/mets.xsd
+           http://www.greenstone.org/namespace/gsdlmetadata/1.0/
+           http://www.greenstone.org/namespace/gsdlmetadata/1.0/gsdl_metadata.xsd"
+  OBJID="HASH01147ecdadce834077fd83df:2">
+<mets:dmdSec ID="DM1" GROUPID="1">
+  <mets:mdWrap  MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1">
+    <mets:xmlData>
+      <gsdl3:Metadata name="gsdlsourcefilename">import\triplemarc\00000002.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="gsdldoctype">indexed_doc</gsdl3:Metadata>
+      <gsdl3:Metadata name="Plugin">NulPlugin</gsdl3:Metadata>
+      <gsdl3:Metadata name="FileSize">0</gsdl3:Metadata>
+      <gsdl3:Metadata name="Source">00000002.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="SourceFile">00000002.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="null_file">triplemarc\00000002.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="NoText">1</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Publisher">The Unit,</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Publisher">London, U.K. :</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Creator">Economist Intelligence Unit (Great Britain)</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Companion publication to: Country report. Finland.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Continues the annual supplement to: Quarterly economic review of Finland.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">CNTRY.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Latest issue consulted: 1987-88.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Coverage">Finland Commerce Periodicals.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Coverage">Finland Economic conditions 1981-  Periodicals.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Coverage">Finland Politics and government 1981-  Periodicals.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Coverage">Finland Economic conditions 1981- Periodicals.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Date">c1986-</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Title">Country profile. Finland &amp;#091;electronic resource&amp;#093; / EIU, the Economist Intelligence Unit.</gsdl3:Metadata>
+      <gsdl3:Metadata name="Title">Country profile. Finland &amp;#091;electronic resource&amp;#093; / EIU, the Economist Intelligence Unit.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Identifier">0269-5332</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Relation">Quarterly economic review of Finland 0142-419X (DLC)   77647344 (OCoLC)3133153.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Relation">Online version of print publication.</gsdl3:Metadata>
+      <gsdl3:Metadata name="Title">00000002</gsdl3:Metadata>
+      <gsdl3:Metadata name="Identifier">HASH01147ecdadce834077fd83df</gsdl3:Metadata>
+      <gsdl3:Metadata name="lastmodified">1336098095</gsdl3:Metadata>
+      <gsdl3:Metadata name="lastmodifieddate">20120503</gsdl3:Metadata>
+      <gsdl3:Metadata name="oailastmodified">1352166705</gsdl3:Metadata>
+      <gsdl3:Metadata name="oailastmodifieddate">20121105</gsdl3:Metadata>
+      <gsdl3:Metadata name="assocfilepath">HASH0114.dir</gsdl3:Metadata>
+    </mets:xmlData>
+  </mets:mdWrap>
+</mets:dmdSec>
+<mets:fileSec>
+  <mets:fileGrp ID="FILEGROUP_PRELUDE1">
+    <mets:file MIMETYPE="text/xml" ID="FILE1"  >
+      <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/text())" xlink:title="Hierarchical Document Structure"/>
+    </mets:file>
+  </mets:fileGrp>
+  <mets:fileGrp ID="default">
+    <mets:file MIMETYPE="text/xml" ID="default.1"  >
+      <mets:FLocat LOCTYPE="URL" xlink:href="file:import\triplemarc\00000002.nul" />
+    </mets:file>
+  </mets:fileGrp>
+</mets:fileSec>
+<mets:structMap ID="Section" TYPE="Section" LABEL="Section">
+  <mets:div ID="DS1" TYPE="Section" 
+      ORDER="0" ORDERLABEL="1" 
+      LABEL="1" DMDID="DM1">
+    <mets:fptr FILEID="FILEGROUP_PRELUDE1" />
+  </mets:div>
+</mets:structMap>
+<mets:structMap ID="All" TYPE="Whole Document" LABEL="All">
+  <mets:div ID="DSAll" TYPE="Document" ORDER="0" ORDERLABEL="All" LABEL="Whole Documemt" DMDID="DM1">
+    <mets:fptr FILEID="default.1" />
+  </mets:div>
+</mets:structMap>
+</mets:mets>

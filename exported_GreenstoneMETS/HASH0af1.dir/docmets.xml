@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:gsdl3="http://www.greenstone.org/namespace/gsdlmetadata/1.0/"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xsi:schemaLocation="http://www.loc.gov/METS/
+           http://www.loc.gov/standards/mets/mets.xsd
+           http://www.greenstone.org/namespace/gsdlmetadata/1.0/
+           http://www.greenstone.org/namespace/gsdlmetadata/1.0/gsdl_metadata.xsd"
+  OBJID="HASH0af1c3812b859f43b12cb8:2">
+<mets:dmdSec ID="DM1" GROUPID="1">
+  <mets:mdWrap  MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1">
+    <mets:xmlData>
+      <gsdl3:Metadata name="gsdlsourcefilename">import\triplemarc\00000001.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="gsdldoctype">indexed_doc</gsdl3:Metadata>
+      <gsdl3:Metadata name="Plugin">NulPlugin</gsdl3:Metadata>
+      <gsdl3:Metadata name="FileSize">0</gsdl3:Metadata>
+      <gsdl3:Metadata name="Source">00000001.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="SourceFile">00000001.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="null_file">triplemarc\00000001.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="NoText">1</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">Universities and colleges India Directories.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Publisher">Association of Indian Universities</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Publisher">New Dehli :</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Creator">Association of Indian Universities.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">SERBIB/SERLOC merged record</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Description based on: 1989.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Relation">Universities handbook. India (DLC)   75929543 (OCoLC)2245642</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Title">Universities handbook.</gsdl3:Metadata>
+      <gsdl3:Metadata name="Title">Universities handbook.</gsdl3:Metadata>
+      <gsdl3:Metadata name="Title">00000001</gsdl3:Metadata>
+      <gsdl3:Metadata name="Identifier">HASH0af1c3812b859f43b12cb8</gsdl3:Metadata>
+      <gsdl3:Metadata name="lastmodified">1336098095</gsdl3:Metadata>
+      <gsdl3:Metadata name="lastmodifieddate">20120503</gsdl3:Metadata>
+      <gsdl3:Metadata name="oailastmodified">1352166704</gsdl3:Metadata>
+      <gsdl3:Metadata name="oailastmodifieddate">20121105</gsdl3:Metadata>
+      <gsdl3:Metadata name="assocfilepath">HASH0af1.dir</gsdl3:Metadata>
+    </mets:xmlData>
+  </mets:mdWrap>
+</mets:dmdSec>
+<mets:fileSec>
+  <mets:fileGrp ID="FILEGROUP_PRELUDE1">
+    <mets:file MIMETYPE="text/xml" ID="FILE1"  >
+      <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/text())" xlink:title="Hierarchical Document Structure"/>
+    </mets:file>
+  </mets:fileGrp>
+  <mets:fileGrp ID="default">
+    <mets:file MIMETYPE="text/xml" ID="default.1"  >
+      <mets:FLocat LOCTYPE="URL" xlink:href="file:import\triplemarc\00000001.nul" />
+    </mets:file>
+  </mets:fileGrp>
+</mets:fileSec>
+<mets:structMap ID="Section" TYPE="Section" LABEL="Section">
+  <mets:div ID="DS1" TYPE="Section" 
+      ORDER="0" ORDERLABEL="1" 
+      LABEL="1" DMDID="DM1">
+    <mets:fptr FILEID="FILEGROUP_PRELUDE1" />
+  </mets:div>
+</mets:structMap>
+<mets:structMap ID="All" TYPE="Whole Document" LABEL="All">
+  <mets:div ID="DSAll" TYPE="Document" ORDER="0" ORDERLABEL="All" LABEL="Whole Documemt" DMDID="DM1">
+    <mets:fptr FILEID="default.1" />
+  </mets:div>
+</mets:structMap>
+</mets:mets>

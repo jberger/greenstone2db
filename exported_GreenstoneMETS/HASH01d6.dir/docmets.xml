@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:gsdl3="http://www.greenstone.org/namespace/gsdlmetadata/1.0/"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xsi:schemaLocation="http://www.loc.gov/METS/
+           http://www.loc.gov/standards/mets/mets.xsd
+           http://www.greenstone.org/namespace/gsdlmetadata/1.0/
+           http://www.greenstone.org/namespace/gsdlmetadata/1.0/gsdl_metadata.xsd"
+  OBJID="HASH01d68ebb28a8fce6bb18d706:2">
+<mets:dmdSec ID="DM1" GROUPID="1">
+  <mets:mdWrap  MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1">
+    <mets:xmlData>
+      <gsdl3:Metadata name="gsdlsourcefilename">import\triplemarc\00000003.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="gsdldoctype">indexed_doc</gsdl3:Metadata>
+      <gsdl3:Metadata name="Plugin">NulPlugin</gsdl3:Metadata>
+      <gsdl3:Metadata name="FileSize">0</gsdl3:Metadata>
+      <gsdl3:Metadata name="Source">00000003.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="SourceFile">00000003.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="null_file">triplemarc\00000003.nul</gsdl3:Metadata>
+      <gsdl3:Metadata name="NoText">1</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">Universities and colleges Great Britain Directories.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">Professional education Great Britain Directories.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">Diploma's (onderwijs) gtt</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">Universitâes Grande-Bretagne Râepertoires.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">Professions libâerales Grande-Bretagne Râepertoires.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">DIRECTORIES unbist</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">PROFESSIONAL WORKERS unbist</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">UNIVERSITIES AND COLLEGES unbist</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Subject">UNITED KINGDOM unbist</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Publisher">Kogan Page</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Publisher">London :</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Identifier">0141-5972</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Vol. for 1966 unnumbered but constitutes 1st ed.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">SERBIB/SERLOC merged record</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Description based on: 11th ed.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Latest issue consulted: 39th ed.</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">ACQN: aq 94016674</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">Annual,</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Description">FRO Vendor Update</gsdl3:Metadata>
+      <gsdl3:Metadata name="dc.Title">British qualifications.</gsdl3:Metadata>
+      <gsdl3:Metadata name="Title">British qualifications.</gsdl3:Metadata>
+      <gsdl3:Metadata name="Title">00000003</gsdl3:Metadata>
+      <gsdl3:Metadata name="Identifier">HASH01d68ebb28a8fce6bb18d706</gsdl3:Metadata>
+      <gsdl3:Metadata name="lastmodified">1336098095</gsdl3:Metadata>
+      <gsdl3:Metadata name="lastmodifieddate">20120503</gsdl3:Metadata>
+      <gsdl3:Metadata name="oailastmodified">1352166705</gsdl3:Metadata>
+      <gsdl3:Metadata name="oailastmodifieddate">20121105</gsdl3:Metadata>
+      <gsdl3:Metadata name="assocfilepath">HASH01d6.dir</gsdl3:Metadata>
+    </mets:xmlData>
+  </mets:mdWrap>
+</mets:dmdSec>
+<mets:fileSec>
+  <mets:fileGrp ID="FILEGROUP_PRELUDE1">
+    <mets:file MIMETYPE="text/xml" ID="FILE1"  >
+      <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/text())" xlink:title="Hierarchical Document Structure"/>
+    </mets:file>
+  </mets:fileGrp>
+  <mets:fileGrp ID="default">
+    <mets:file MIMETYPE="text/xml" ID="default.1"  >
+      <mets:FLocat LOCTYPE="URL" xlink:href="file:import\triplemarc\00000003.nul" />
+    </mets:file>
+  </mets:fileGrp>
+</mets:fileSec>
+<mets:structMap ID="Section" TYPE="Section" LABEL="Section">
+  <mets:div ID="DS1" TYPE="Section" 
+      ORDER="0" ORDERLABEL="1" 
+      LABEL="1" DMDID="DM1">
+    <mets:fptr FILEID="FILEGROUP_PRELUDE1" />
+  </mets:div>
+</mets:structMap>
+<mets:structMap ID="All" TYPE="Whole Document" LABEL="All">
+  <mets:div ID="DSAll" TYPE="Document" ORDER="0" ORDERLABEL="All" LABEL="Whole Documemt" DMDID="DM1">
+    <mets:fptr FILEID="default.1" />
+  </mets:div>
+</mets:structMap>
+</mets:mets>
